@@ -1,9 +1,8 @@
-from fastapi import FastAPI, status
-from fastapi.responses import JSONResponse
-
 import datetime
 
-import uvicorn as uvicorn
+from fastapi import FastAPI, status
+from fastapi.responses import JSONResponse
+import uvicorn
 
 
 app = FastAPI()
