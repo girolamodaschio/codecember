@@ -1,6 +1,5 @@
 import sys
 from pyicloud import PyiCloudService
-
 from src.config import ACCOUNT, PASSWORD
 
 api = PyiCloudService(ACCOUNT, PASSWORD)
