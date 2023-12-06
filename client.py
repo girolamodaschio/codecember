@@ -2,6 +2,7 @@ import sys
 from pyicloud import PyiCloudService
 from src.config import ACCOUNT, PASSWORD
 import os
+import datetime
 
 api = PyiCloudService(ACCOUNT, PASSWORD)
 if api.requires_2fa:
@@ -48,12 +49,13 @@ print('Next step: download all photos in memory')
 
 counter = 0
 
-for photo in api.photos.albums['Screenshots']:
+print(datetime.datetime.now())
+for photo in api.photos.albums['All Photos']:
     download = photo.download()
     with open(os.path.join('data', photo.filename), 'wb') as opened_file:
         opened_file.write(download.raw.read())
-        print(f"{photo.filename}, {counter}/174")
+        print(f"{photo.filename}, {counter}")
         counter +=1
 
-
-print(f"Downloaded: {counter}/174")
+print(datetime.datetime.now())
+print(f"Downloaded: {counter}")

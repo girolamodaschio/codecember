@@ -10,6 +10,8 @@ jeepney==0.8.0
 keyring==24.3.0
 keyrings.alt==5.0.0
 more-itertools==10.1.0
+numpy==1.26.2
+Pillow==10.1.0
 pycparser==2.21
 pyicloud==1.0.0
 python-decouple==3.8
