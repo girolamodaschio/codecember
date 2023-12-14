@@ -1,13 +1,13 @@
 import glob
 
 from src.config import IMAGE_DIR, HASH_SIZE
-from detect_similarities import DuplicateRemover
+from detect_similarities import Codecember
 import time
 from PIL import Image
 import imagehash
 
 def main():
-    dr = DuplicateRemover()
+    dr = Codecember()
     hashes = {}
     counter = 0
     files = glob.glob(f'{IMAGE_DIR}/*')
@@ -21,8 +21,6 @@ def main():
                 temp_hash = imagehash.average_hash(img, hash_size=HASH_SIZE)
                 if temp_hash in hashes:
                     dr.move_files(file, hashes[temp_hash])
-                    dr.create_report(file, hashes[temp_hash])
-
                 else:
                     hashes[temp_hash] = file
                     dr.move_files(file, file)
